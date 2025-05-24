@@ -35,7 +35,8 @@ export default function ChatBot() {
     setMessages([...messages, userMsg]);
     setInput("");
     
-    const res = await axios.post("http://localhost:8000/chat", { message: input });
+    // const res = await axios.post("http://localhost:8000/chat", { message: input });
+    const res = await axios.post("https://resort-bot-backend.onrender.com/chat", { message: input });
     const botMsg = { role: "bot", content: res.data.reply };
     setMessages([...messages, userMsg, botMsg]);
   };
